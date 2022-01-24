@@ -42,5 +42,11 @@ export default {
       type: "boolean",
       description: "Has Peel the Garlic responded to this comment?",
     },
+    {
+      name: "parent",
+      title: "Parent",
+      type: "reference",
+      to: { type: "comment" },
+    },
   ],
 };

@@ -56,6 +56,18 @@ export default {
       type: "string",
     },
     {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        slugify: (title: string): string => {
+          const strippedTitle = title.replace(/[^a-zA-Z\u00C0-\u00FF\s]/gi, "");
+          return strippedTitle.toLowerCase().replace(/ /g, "-");
+        },
+      },
+    },
+    {
       name: "duration",
       title: "Duration",
       type: "number",
@@ -123,6 +135,19 @@ export default {
       of: [
         {
           type: "number",
+        },
+      ],
+    },
+    {
+      name: "photos",
+      title: "Photos",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+          },
         },
       ],
     },
